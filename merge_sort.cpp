@@ -66,33 +66,16 @@ int* combine_sorted_arrays(int* sorted_array_left, int sorted_array_left_size,
         } else if ((!left_complete) && (sorted_array_left[index_left] < sorted_array_right[index_right])) {
             add_left = true;
         }
-        
-        // Debugging message
-        if(left_complete && right_complete) {
-            // std::cout << "---- Left: Complete. Right: Complete" << std::endl; 
-        } else if(left_complete) {
-            // std::cout << "---- Left: Complete. Right: " << sorted_array_right[index_right] << std::endl; 
-        } else if (right_complete) {
-            // std::cout << "---- Left: " << sorted_array_left[index_left] << " Right: Complete" << std::endl; 
-        } else {
-            // std::cout << "---- Left: " << sorted_array_left[index_left] << " Right: " << sorted_array_right[index_right] << std::endl;  
-        }
 
         if(add_left) {
-            // std::cout << "------ Adding left: " << sorted_array_left[index_left] << std::endl;  
             sorted_array[i] = sorted_array_left[index_left];
             index_left++;
         } else {
-            // std::cout << "------ Adding right: " << sorted_array_right[index_right] << std::endl;  
             sorted_array[i] = sorted_array_right[index_right];
             index_right++;
         }
         add_left = false;
-        // std::cout << "Printing partially sorted array: ";
-        // print_array(sorted_array, i + 1);
     }
-    // std::cout << "Printing sorted array: " << std::endl;
-    // print_array(sorted_array, sorted_array_left_size + sorted_array_right_size);
 
     return(sorted_array);
 }
